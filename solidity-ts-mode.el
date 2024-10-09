@@ -4,9 +4,6 @@
 ;;;
 ;;; Code:
 ;;;
-(require 'treesit)
-(require 'solidity-mode)
-
 
 (define-derived-mode solidity-ts-mode solidity-mode "Solidity[ts]"
   "..."
@@ -222,7 +219,7 @@
     :language solidity
     :override t
     :feature critical-operators
-    (["delete" "new"] @font-lock-opeartor-face)
+    (["delete" "new"] @font-lock-operator-face)
 
 
     :language solidity
