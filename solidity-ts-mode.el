@@ -1,11 +1,14 @@
-;;; pacakge --- Summary: solidity-ts-mode.el -*- lexical-binding: t; -*-
-;;;
+;;; solidity-ts-mode --- Major mode for solidity with native treesit support -*- lexical-binding: t; -*-
 ;;; Commentary:
-;;;
 ;;; Code:
-;;;
 
-(define-derived-mode solidity-ts-mode solidity-mode "Solidity[ts]"
+(when (not (featurep 'solidity-mode))
+  (error "Require feature 'solidity-mode"))
+(when (not (and (functionp 'treesit-available-p) (treesit-available-p)))
+  (error "Require Emacs >= 29 with --with-treesit"))
+
+
+(define-derived-mode solidity-ts-mode solidity-mode "Solidity[Treesit]"
   "..."
   :syntax-table nil
   (setq-local font-lock-defaults nil)
